@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://deq8nbjxeogu"]
+
+[ext_resource type="Texture2D" uid="uid://coiavutlbxvx" path="res://assets/Deco/13.png" id="1_an4g6"]
+[ext_resource type="Script" uid="uid://bfuhai5i28ie3" path="res://ItemData.gd" id="2_08o1c"]
+
+[resource]
+script = ExtResource("2_08o1c")
+item_name = "item1"
+item_texture = ExtResource("1_an4g6")
+item_amount = 1
+metadata/_custom_type_script = "uid://bfuhai5i28ie3"
