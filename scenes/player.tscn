@@ -1,0 +1,116 @@
+[gd_scene load_steps=17 format=3 uid="uid://b2fv6gvcarhi3"]
+
+[ext_resource type="Texture2D" uid="uid://brpt1psy6aaw1" path="res://assets/Factions/Knights/Troops/Archer/Blue/Archer_Blue.png" id="1_66iuv"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_m2y4l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o57i2"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(0, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tdy3"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(192, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu84l"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(384, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k3b3"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iem81"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy2l1"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(960, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iw4f"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c140c"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjlm7"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vhkg1"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0fvmb"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x0j0"]
+atlas = ExtResource("1_66iuv")
+region = Rect2(960, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_osr50"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o57i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0tdy3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu84l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k3b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iem81")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy2l1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iw4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c140c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjlm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vhkg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0fvmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x0j0")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_78dj3"]
+radius = 16.0312
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_m2y4l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_osr50")
+animation = &"run"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 8)
+shape = SubResource("CircleShape2D_78dj3")
