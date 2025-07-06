@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Number" load_steps=3 format=3 uid="uid://cyvwwewstrtra"]
+
+[ext_resource type="Texture2D" uid="uid://ygrfs2gabrmb" path="res://assets/Numbers/19.png" id="1_e1lcf"]
+[ext_resource type="Script" uid="uid://bg8mfo08qsl60" path="res://Number.gd" id="2_1ygju"]
+
+[resource]
+script = ExtResource("2_1ygju")
+item_name = "19"
+item_texture = ExtResource("1_e1lcf")
+metadata/_custom_type_script = "uid://bg8mfo08qsl60"

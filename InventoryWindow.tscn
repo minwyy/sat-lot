@@ -53,3 +53,4 @@ text = "Inventory"
 [node name="SlotGroup" type="GridContainer" parent="Inventory/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+columns = 2

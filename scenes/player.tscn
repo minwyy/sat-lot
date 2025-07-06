@@ -1,7 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://b2fv6gvcarhi3"]
+[gd_scene load_steps=17 format=3 uid="uid://bsdc0qanxulcq"]
 
 [ext_resource type="Texture2D" uid="uid://brpt1psy6aaw1" path="res://assets/Factions/Knights/Troops/Archer/Blue/Archer_Blue.png" id="1_66iuv"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_m2y4l"]
+[ext_resource type="Script" uid="uid://cft8tp4j2sp86" path="res://scenes/player.gd" id="1_m2y4l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o57i2"]
 atlas = ExtResource("1_66iuv")

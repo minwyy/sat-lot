@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj2wlautlqoa2"]
+
+[sub_resource type="GDScript" id="GDScript_e1ar6"]
+script/source = "extends Control
+
+const NUM_REELS = 3
+const NUM_SYMBOLS_PER_REEL = 3
+
+var reel_scene = preload(\"res://Reel.tscn\")
+var symbols = [
+	preload(\"res://symbols/symbol1.png\"),
+	preload(\"res://symbols/symbol2.png\"),
+	preload(\"res://symbols/symbol3.png\"),
+	# Add more symbols as needed
+]
+
+onready var reels_container = $ReelsContainer
+
+func _ready():
+	randomize()
+	for i in range(NUM_REELS):
+		var new_reel = reel_scene.instance()
+		reels_container.add_child(new_reel)
+		new_reel.populate_reel(symbols, NUM_SYMBOLS_PER_REEL)
+"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e1ar6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_e1ar6")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Button"
+icon = SubResource("ViewportTexture_e1ar6")

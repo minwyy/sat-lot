@@ -11,4 +11,4 @@ func set_item_slot() -> void:
 		return
 	%ItemTexture.texture = current_item.item_texture
 	%ItemAmount.text = str(current_item.item_amount)
-	
+	 
