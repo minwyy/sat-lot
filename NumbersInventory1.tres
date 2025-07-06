@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NumbersInventory" load_steps=3 format=3 uid="uid://cqmgvamxosgby"]
+
+[ext_resource type="Script" uid="uid://bg8mfo08qsl60" path="res://Number.gd" id="1_8lrwe"]
+[ext_resource type="Script" uid="uid://g026i7svvhsm" path="res://NumbersInventory.gd" id="2_ecdr7"]
+
+[resource]
+script = ExtResource("2_ecdr7")
+number_data = Array[ExtResource("1_8lrwe")]([])
+metadata/_custom_type_script = "uid://g026i7svvhsm"

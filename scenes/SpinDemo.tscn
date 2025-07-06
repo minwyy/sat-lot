@@ -1,52 +1,43 @@
 [gd_scene load_steps=3 format=3 uid="uid://cj2wlautlqoa2"]
 
-[sub_resource type="GDScript" id="GDScript_e1ar6"]
-script/source = "extends Control
-
-const NUM_REELS = 3
-const NUM_SYMBOLS_PER_REEL = 3
-
-var reel_scene = preload(\"res://Reel.tscn\")
-var symbols = [
-	preload(\"res://symbols/symbol1.png\"),
-	preload(\"res://symbols/symbol2.png\"),
-	preload(\"res://symbols/symbol3.png\"),
-	# Add more symbols as needed
-]
-
-onready var reels_container = $ReelsContainer
-
-func _ready():
-	randomize()
-	for i in range(NUM_REELS):
-		var new_reel = reel_scene.instance()
-		reels_container.add_child(new_reel)
-		new_reel.populate_reel(symbols, NUM_SYMBOLS_PER_REEL)
-"
+[ext_resource type="Script" uid="uid://cxr4frkr5wqc1" path="res://SpinDemo.gd" id="1_x7ani"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_e1ar6"]
 
-[node name="Control" type="Control"]
+[node name="SpinDemo" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = SubResource("GDScript_e1ar6")
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_x7ani")
+
+[node name="SpinButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.0
+offset_top = -31.0
+offset_right = 33.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Button"
 icon = SubResource("ViewportTexture_e1ar6")
+
+[node name="ReelsContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

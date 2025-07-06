@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://v4p2m57l8px8"]
+
+[node name="Symbol" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
