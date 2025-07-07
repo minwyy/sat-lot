@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj2wlautlqoa2"]
+[gd_scene load_steps=4 format=3 uid="uid://cj2wlautlqoa2"]
 
 [ext_resource type="Script" uid="uid://cxr4frkr5wqc1" path="res://SpinDemo.gd" id="1_x7ani"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7ani"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_e1ar6"]
 
@@ -13,31 +15,32 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
 script = ExtResource("1_x7ani")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_left = -220.0
+offset_top = -104.0
+offset_right = 216.0
+offset_bottom = 51.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_x7ani")
+
+[node name="ReelsContainer" type="HBoxContainer" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+alignment = 1
 
 [node name="SpinButton" type="Button" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -33.0
-offset_top = -31.0
-offset_right = 33.0
+z_index = 1
+layout_mode = 2
+offset_left = 164.0
+offset_top = 89.0
+offset_right = 230.0
+offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "Button"
+text = "Spin"
 icon = SubResource("ViewportTexture_e1ar6")
-
-[node name="ReelsContainer" type="HBoxContainer" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
