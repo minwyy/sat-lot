@@ -1,7 +1,10 @@
-[gd_scene format=3 uid="uid://v4p2m57l8px8"]
+[gd_scene load_steps=2 format=3 uid="uid://v4p2m57l8px8"]
+
+[ext_resource type="Script" uid="uid://cmgog8urokpxg" path="res://scenes/symbol.gd" id="1_4l7ly"]
 
 [node name="Symbol" type="TextureRect"]
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_4l7ly")

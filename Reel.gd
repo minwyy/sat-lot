@@ -1,14 +1,16 @@
 extends Control
 
 var symbol_scene = preload("res://scenes/Symbol.tscn")
-@onready var symbols_container = $SymbolsContainer
+@onready var symbols_container = %SymbolsContainer
 
 func populate_reel(number_inventory_data, num_symbols):
 	for i in range(num_symbols):
 		var new_symbol = symbol_scene.instantiate()
-		symbols_container.add_child(new_symbol)
 		var random_symbol_texture = number_inventory_data[randi() % number_inventory_data.size()].item_texture
 		new_symbol.texture = random_symbol_texture
+		new_symbol.z_index = 0
+
+		symbols_container.add_child(new_symbol)
 
 #@onready var tween = $Tween
 
@@ -32,7 +34,7 @@ func spin(numbers_inventory_data, reel_number, used_numbers):
 		tween.tween_callback(func(): symbols_container.position.y = 0) # Reset position instantly for the next loop
 
 	# 4. Animate the final stop
-	# After the blur, we do one final spin that lands on the result
+	# After the blur, we do one final spin that lands on the resultp
 	tween.tween_callback(func(): randomize_symbols(numbers_inventory_data, used_numbers)) # Change symbols before the final spin
 	tween.tween_property(symbols_container, "position:y", 0, spin_duration).from(-reel_height/1.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
 
@@ -41,19 +43,21 @@ func spin(numbers_inventory_data, reel_number, used_numbers):
 	
 	# Reset position after the final spin
 	symbols_container.position.y = 0
-	
-	used_numbers = []
-	emit_signal("stopped")
+	#used_numbers = []
+	if reel_number == 6:
+		GlobalSignals.ReelsStopped.emit(used_numbers)
 
 func randomize_symbols(numbers_inventory_data, used_numbers):
 	#print(numbers_inventory_data[0].item_name)
-	print("generating new numbers")
+	#print("generating new numbers")
+	#print(used_numbers.size())
+	#print("herehere")
 	for symbol in symbols_container.get_children():
 		#var random_symbol = numbers_inventory_data[randi() % numbers_inventory_data.size()]
 		var random_symbol = get_random_element_not_in_other_array(numbers_inventory_data, used_numbers)
 		symbol.texture = random_symbol.item_texture
 		used_numbers.append(random_symbol)
-		print("herehere0 "+str(used_numbers.size()))
+		#print("herehere0 "+str(used_numbers.size()))
 		#print(random_symbol.item_name)
 
 func get_random_element_not_in_other_array(source_array: Array, exclusion_array: Array):
@@ -68,5 +72,7 @@ func get_random_element_not_in_other_array(source_array: Array, exclusion_array:
 		return null # No unique elements found
 
 	# Pick a random element from the filtered list
+	#print(source_array.size())
 	var random_index = randi() % valid_elements.size()
+	#print(random_index)
 	return valid_elements[random_index]
