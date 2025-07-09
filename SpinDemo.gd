@@ -74,8 +74,8 @@ func save_numbers(used_numbers) -> void:
 		print("bad odds, re-roll")
 		start_spin_process()
 	else:
-		print("start saving")
-		print(used_numbers.size())
+		print(odds)
+		print("good odds, saving...")
 		var new_save = Save.new();
 		new_save.number_data = used_numbers
 		ResourceSaver.save(new_save, "user://save.tres")
