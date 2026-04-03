@@ -62,16 +62,19 @@ script = ExtResource("1_x7ani")
 
 [node name="Panel" type="PanelContainer" parent="."]
 layout_mode = 1
-offset_left = -220.0
-offset_top = -104.0
-offset_right = 216.0
-offset_bottom = 51.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -451.0
+offset_top = -238.0
+offset_right = 331.0
+offset_bottom = 163.0
+grow_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_x7ani")
 
 [node name="ReelsContainer" type="HBoxContainer" parent="Panel"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 0
 alignment = 1
 
